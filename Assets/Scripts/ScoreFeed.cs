@@ -2,9 +2,9 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 
-public class ScoreManager : MonoBehaviour
+public class ScoreFeed : MonoBehaviour
 {
-    public static ScoreManager Instance;
+    public static ScoreFeed Instance;
 
     public int score = 0;
     public TextMeshProUGUI scoreText;

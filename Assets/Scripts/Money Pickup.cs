@@ -24,9 +24,9 @@ public class CoinPickup : MonoBehaviour
             }
 
             // ✅ Add score to UI
-            if (ScoreManager.Instance != null)
+            if (ScoreFeed.Instance != null)
             {
-                ScoreManager.Instance.AddScore(coinValue);
+                ScoreFeed.Instance.AddScore(coinValue);
             }
 
             // ✅ Destroy coin
