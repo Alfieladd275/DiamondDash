@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CoinPickup : MonoBehaviour
 {
@@ -14,22 +14,22 @@ public class CoinPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // 1. Play the sound through the Player's AudioSource for clarity
+            // ✅ Play coin sound through player
             AudioSource playerAudio = other.GetComponent<AudioSource>();
             if (coinSound != null && playerAudio != null)
             {
-                // We use a slightly higher pitch for coins to make them sound "extra" shiny
                 playerAudio.pitch = Random.Range(1.1f, 1.2f);
                 playerAudio.PlayOneShot(coinSound, volume);
-
-                // Reset pitch so other sounds don't stay high-pitched
                 playerAudio.pitch = 1.0f;
             }
 
-            // 2. Log the collection (or add to your Inventory/GameManager here)
-            Debug.Log("Collected " + coinValue + " coin(s)!");
+            // ✅ Add score to UI
+            if (ScoreManager.Instance != null)
+            {
+                ScoreManager.Instance.AddScore(coinValue);
+            }
 
-            // 3. Destroy the coin
+            // ✅ Destroy coin
             Destroy(gameObject);
         }
     }
